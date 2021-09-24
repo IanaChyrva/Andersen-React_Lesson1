@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script src="https://unpkg.com/react@16.13.1/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone@7.9.3/babel.js"></script>
+
+        <script type="text/babel">
+            const Span = ({ text }) => {
+                return (
+                    <span className='textStyle' key='span'>
+                        {text}
+                    </span>
+                );
+            };
+
+            const Interaction = ({ text }) => {
+                return (
+                    <>
+                        <input
+                            key='input'
+                            type='text'
+                            placeholder='some text'
+                        />
+                        <button key='button'>{text}</button>
+                    </>
+                );
+            };
+
+            const Wrapper = () => {
+                return (
+                    <div
+                        style={{
+                            padding: '10px',
+                            width: '300px',
+                            border: '1px solid grey',
+                            borderRadius: '5px',
+                            margin: '0 auto',
+                        }}
+                    >
+                        <Span text='Hi there' />
+                        <Interaction text='Click me' />
+                    </div>
+                );
+            };
+
+            ReactDOM.render(<Wrapper />, document.getElementById('root'));
+        </script>
+    </body>
+</html>
